@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", async () => {
   if (!hasCookie) {
     try {
       const response = await fetch(
-        "https://api.erzen.xyz/v1/auth/arp-transfer",
+        "https://api.erzen.xyz/v1/auth/arp-transfer?returnUrl=" + returnTo,
         {
           method: "GET",
           credentials: "include",
