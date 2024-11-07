@@ -21,8 +21,9 @@ document.addEventListener("DOMContentLoaded", async () => {
       if (response.ok) {
         const html = await response.text();
         document.write(html);
-      } else {
-        window.location.href = returnTo + "?error=auth_failed";
+      } else if (response.status === 401) {
+        const html = await response.text();
+        document.write(html);
       }
     } catch (error) {
       console.error("Error authenticating with XENAuth:", error);
